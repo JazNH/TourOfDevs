@@ -1,0 +1,21 @@
+<h2>My Developers</h2>
+<div>
+    <label>Developer name:
+        <input #developerName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(developerName.value); developerName.value=''">
+        add
+    </button>
+</div>
+<ul class="developers">
+    <li *ngFor="let developer of developers">
+        <a routerLink="/detail/{{developer.id}}">
+            <span class="badge">{{developer.id}}</span> {{developer.name}}
+        </a>
+        <button class="delete" title="delete developer" (click)="delete(developer)">x</button>
+    </li>
+</ul>
+
+<!-- <app-developer-detail [developer]="selectedDeveloper"></app-developer-detail> --> 
+
